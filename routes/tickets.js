@@ -1,18 +1,6 @@
 const dataPath = './data/tickets.json';
 
 const ticketsRoutes = (app, fs) => {
-    // variables
-  
-    // READ
-    // app.get('/users', (req, res) => {
-    //   fs.readFile(dataPath, 'utf8', (err, data) => {
-    //     if (err) {
-    //       throw err;
-    //     }
-  
-    //     res.send(JSON.parse(data));
-    //   });
-    // });
 
     app.get('/tickets', (req, res) => {
         fs.readFile(dataPath, 'utf8', (err, data) => {
@@ -48,24 +36,6 @@ const ticketsRoutes = (app, fs) => {
             resObj.data = results;
 
             res.send(resObj);
-
-            
-            // if(userId !== undefined) {
-            //     const userExists = dataSet.find(u => u._id == userId);
-
-            //     console.log("userExists", userExists);
-            //     if(userExists) {
-            //         resObj.data = userExists;
-            //         res.send(resObj);
-            //     } else {
-            //         resObj.success = false;
-            //         resObj.error = `invalid User id or user doesn't exist`;
-            //         res.send(resObj);
-            //     }
-            // } else {
-            //     resObj.data = JSON.parse(data);
-            //     res.send(resObj);
-            // }
 
         });
     });

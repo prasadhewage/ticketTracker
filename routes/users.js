@@ -22,14 +22,6 @@ const userRoutes = (app, fs) => {
 
             console.log("req", req.query);
 
-            // if(userId == undefined) {
-            //     res.status(400).send(`userId required`);
-            // }
-
-            // if (userId) {
-            //     results = results.filter(r => r._id == userId);
-            // }
-
             let userResults = results.filter(r => {
 
                 for (let k in r) {
@@ -52,17 +44,6 @@ const userRoutes = (app, fs) => {
                 let userSubmittedTickets = await ticketsModule.getUserSubmittedTickets(fs, user._id);
                 let userAssignedTickets = await ticketsModule.getUserAssignedTickets(fs, user._id);
 
-                // console.log(userOrg)
-                // respData.
-                
-                // for (let j = 0; j < userOrg.length; j++) {
-                //     const organization = userOrg[j];
-
-                //     respData.organization = {
-                //         name: organization.name,
-                //         details: organization.details,
-                //     }
-                // }
 
                 for (let j = 0; j < userSubmittedTickets.length; j++) {
                     const submittedTicket = userSubmittedTickets[j];
@@ -85,29 +66,9 @@ const userRoutes = (app, fs) => {
 
                     tickets.push(ticketObj);
                 }
-                // for (let j = 0; j < ticketsForOrg.length; j++) {
-                //     const ticket = ticketsForOrg[j];
-                //     let submittedUserOfTicket = await usersModule.getUser(fs, ticket.submitter_id);
-                //     let ticketObj = {...ticket, userName: submittedUserOfTicket[0].name, organization: {
-                //         name: organization.name,
-                //         details: organization.details,
-                //     }};
-
-                //     tickets.push(ticketObj);
-                // }
-
-                // respData.organization = organization;
                 returnDataArr.tickets = tickets;
 
-                // returnDataArr.push(respData);
             }
-
-            // const assignedTickets = await ticketsModule.getUserAssignedTickets(fs, userId);
-            // const submittedTickets = await ticketsModule.getUserSubmittedTickets(fs, userId);
-
-            // resObj.data.user = await getUser(fs, userId);
-            // resObj.data.assignedTickets = assignedTickets;
-            // resObj.data.submittedTickets = submittedTickets;
 
             res.send(returnDataArr);
 

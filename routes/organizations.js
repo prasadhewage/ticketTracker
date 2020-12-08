@@ -55,10 +55,6 @@ const organizationRoutes = (app, fs) => {
                     tickets.push(ticketObj);
                 }
 
-                // respData.organization = organization;
-                // respData.tickets = tickets;
-
-                // returnDataArr.push(respData);
             }
 
             returnDataArr.tickets = tickets;
